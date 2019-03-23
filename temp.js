@@ -7,23 +7,20 @@ var buttonC = document.getElementById('c-f-button');
 
 buttonC.addEventListener('click', function(){
 
-    var temp = window.prompt('Podaj temperaturę w stopniach Celcjusza:');
-  var temp2 = parseFloat(temp);
-  if ((temp === null) || (temp === "") || ((temp.replace(/\s/g,'').length === 0))) {
+    var tempCelcius = window.prompt('Podaj temperaturę w stopniach Celcjusza:');
+    var tempOutput = parseFloat(tempCelcius);
+    if (!tempCelcius) {
     outputC.innerHTML = 'Hej, ale wpisz coś?!'
-  } else if(isNaN(temp2)) {
-	  outputC.innerHTML = 'Niestety! '+temp+' nie jest liczbą!'+'<br><br>';
-  }
-  else{
-    var tempF = temp2 * 9/5 + 32;
-    if(temp2 <= 0) {
-      outputC.innerHTML = temp2+' stopni Celcjusza to w przeliczeniu '+tempF+' stopni Farhenheita'+'<br><br>'+'W tej temperaturze woda jest lodem.'+'<br><br>';
-    }
-    else if ((temp2 > 0) && (temp < 100)) {
-      outputC.innerHTML = temp2+' stopni Celcjusza to w przeliczeniu  '+tempF+' stopni Farenheita'+'<br><br>'+'W tej temperaturze woda jest płynna.'+'<br><br>';
-    }
-    else if (temp2 >= 100) {
-      outputC.innerHTML = temp2+' stopni Celcjusza to  '+tempF+' stopni Farenheita'+'<br><br>'+'W tej temperaturze woda jest w stanie parą wodną.'+'<br><br>';
+    } else if (isNaN(tempOutput)) {
+        outputC.innerHTML = 'Niestety! ' + temp + ' nie jest liczbą!' + '<br><br>';
+    } else {
+    var tempFahrenheit = tempOutput * 9/5 + 32;
+    if (tempOutput <= 0) {
+        outputC.innerHTML = tempOutput + ' stopni Celcjusza to w przeliczeniu ' + tempFahrenheit + ' stopni Farhenheita' + '<br><br>' + 'W tej temperaturze woda jest lodem.' + '<br><br>';
+    } else if ((tempOutput > 0) && (tempOutput < 100)) {
+        outputC.innerHTML = tempOutput + ' stopni Celcjusza to w przeliczeniu  ' + tempFahrenheit + ' stopni Farenheita' + '<br><br>' + 'W tej temperaturze woda jest płynna.' + '<br><br>';
+    } else if (tempOutput >= 100) {
+        outputC.innerHTML = tempOutput + ' stopni Celcjusza to  ' + tempFahrenheit+' stopni Farenheita' + '<br><br>' + 'W tej temperaturze woda jest w stanie parą wodną.' + '<br><br>';
     }
   }
 });
@@ -37,7 +34,7 @@ var buttonF = document.getElementById('f-c-button');
 buttonF.addEventListener('click', function(){
  var temp = window.prompt('Podaj temperaturę w stopniach Celcjusza:');
   var temp3 = parseFloat(temp);
-  if ((temp === null) || (temp === "") || ((temp.replace(/\s/g,'').length === 0))) {
+  if (!temp) {
     outputF.innerHTML = 'Hej, ale coś musisz wpisać?!'
   } else if(isNaN(temp3)) {
 	  outputF.innerHTML = 'Niestety! '+temp+' nie jest liczbą!'+'<br><br>';
